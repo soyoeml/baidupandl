@@ -85,7 +85,7 @@ void err_setout(int fd)
 /* 
  * Do some cleanup when program exit normally, this mean not killed by signal.
  */
-__attribute__((destructor(255))) void err_fini(void)
+__attribute__((destructor)) void err_fini(void)
 {
 #ifdef	LIBERR_TEST
 	char buf[32];
@@ -161,7 +161,7 @@ static void err_sigcont_handler(int signo)
 #endif
 }
 
-__attribute__((constructor(255))) void err_init(void)
+__attribute__((constructor)) void err_init(void)
 {
 	struct sigaction act, oact;
 	
@@ -259,5 +259,5 @@ void err_exit(const char *msg, ...)
 	 * Force to tell compiler this is 'noreturn', because of in the macro
 	 * 'call_err_internal', the first argument 'doexit' is true.
 	 */
-	__builtin_unreachable();
+//	__builtin_unreachable();
 }

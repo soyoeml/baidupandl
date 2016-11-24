@@ -13,7 +13,7 @@
 #include <sys/time.h>
 
 #include "err_handler.h"
-
+#define NAME_MAX (FILENAME_MAX)
 #define	BUFSZ		(1 << 20)
 #define min(x, y)	((x < y) ? x : y)
 #define max(x, y)	((x > y) ? x : y)

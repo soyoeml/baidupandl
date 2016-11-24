@@ -18,7 +18,7 @@
 #include <sys/types.h>
 #include <limits.h>
 #include "dlpart.h"
-
+#define NAME_MAX (FILENAME_MAX)
 #define DI_BUF_SZ		1024
 #define DI_URL_SZ		4096
 #define DI_NAME_MAX		(NAME_MAX + 1)

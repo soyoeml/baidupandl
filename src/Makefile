@@ -1,8 +1,10 @@
+LIBS	:= -L/opt/lib
+INC_PATH:= -I/opt/include/
 PROGS	:= bdpandl
 TOOLS	:= bcmp bsearch repair
 OBJS	:= dlinfo.o dlpart.o dlcommon.o dlscrolling.o dlbuffer.o \
 	   dllist.o dlssl.o err_handler.o
-CFLAGS	:= -Wall -lpthread -lcurl
+CFLAGS	:= -Wall -lpthread -lcurl -lssl -lcrypto -lz
 CC	:= gcc
 
 
@@ -13,24 +15,24 @@ debug: CFLAGS+=-g
 
 
 %.o: %.c
-	$(CC) -c $^ $(CFLAGS)
+	$(CC) -c $^   ${INC_PATH}
 
 bdpandl: bdpandl.c $(OBJS)
-	$(CC) -o $@ $^ $(CFLAGS)
+	$(CC) -o $@ $^ $(CFLAGS) ${INC_PATH} $(LIBS)
 
 bcmp: bcmp.c $(OBJS)
-	$(CC) -o $@ $^ $(CFLAGS)
+	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 bsearch: bsearch.c $(OBJS)
-	$(CC) -o $@ $^ $(CFLAGS)
+	$(CC) -o $@ $^ $(CFLAGS) $(LIBS) ${INC_PATH} $(LIBS)
 repair: repair.c $(OBJS)
-	$(CC) -o $@ $^ $(CFLAGS)
+	$(CC) -o $@ $^ $(CFLAGS) ${INC_PATH} $(LIBS)
 
 .PHONY: ALL debug clean install uninstall
 clean:
 	$(RM) $(OBJS) $(PROGS) $(TOOLS) $(wildcard *.h.gch)
 
 install:
-	cp $(PROGS) /usr/bin
+	cp $(PROGS) /opt/bin
 
 uninstall:
-	$(RM) /usr/bin/$(PROGS)
+	$(RM) /opt/bin/$(PROGS)
