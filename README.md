@@ -1,10 +1,10 @@
 # baidudl
 I changed src/Makefile for powerpc platform. Please goto src folder and run:
-	$ make
-	$ make install
-	$ bdpandl -h
+        $ make
+        $ make install
+        $ bdpandl -h
 
-Thanks to orginal author for giving us a good tool. The following are original read.me.
+Thanks to orginal author for giving us a good tool. The following are original read.md.
 -----------------------------------------------------------------------------------------
 
 This is a multi-thread download tool for linux, mainly used to download large
