@@ -1,5 +1,6 @@
 # baidudl
 I changed src/Makefile for powerpc platform. Please goto src folder and run:
+#Build and run
         $ make
         $ make install
         $ bdpandl -h
