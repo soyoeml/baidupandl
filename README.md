@@ -1,4 +1,12 @@
 # baidudl
+I changed src/Makefile for powerpc platform. Please goto src folder and run:
+	$ make
+	$ make install
+	$ bdpandl -h
+
+Thanks to orginal author for giving us a good tool. The following are original read.me.
+-----------------------------------------------------------------------------------------
+
 This is a multi-thread download tool for linux, mainly used to download large
 file from pan.baidu.com, since pan.baidu.com has changed their server to use
 https instead of http, and also they are using https 302 redirect, this caused
